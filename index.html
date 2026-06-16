@@ -3,178 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promoción de Libro | El Camino del Éxito</title>
-    <!-- Tailwind CSS para un diseño rápido y profesional -->
+    <title>EXPLICADOS - Lemuel Cruz</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            /* Fondo oscuro con degradado azul */
-            background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%);
-            background-attachment: fixed;
-            color: #f8fafc;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        /* Efecto de brillo en el botón de descarga */
+        /* Animación suave para los botones y elementos brillantes */
         .btn-glow {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
             transition: all 0.3s ease;
         }
         .btn-glow:hover {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
             transform: translateY(-2px);
         }
-
-        /* Estilo del libro (Sombra 3D) */
-        .book-shadow {
-            box-shadow: -10px 10px 30px rgba(0,0,0,0.6), inset -2px -2px 5px rgba(255,255,255,0.2);
-            transition: transform 0.3s ease;
+        .btn-glow:active {
+            transform: translateY(1px);
         }
-        .book-shadow:hover {
-            transform: scale(1.02) rotate(-1deg);
+        
+        /* Animación de pulso sutil para el contador */
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 3s infinite ease-in-out;
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-[#020617] text-white font-sans antialiased selection:bg-blue-500 selection:text-white">
 
     <!-- Contenedor Principal -->
-    <div class="w-full min-h-screen">
+    <div class="w-full min-h-screen relative flex flex-col">
         
-        <!-- Navbar -->
-        <nav class="p-6">
-            <div class="max-w-6xl mx-auto flex justify-between items-center">
-                <div class="text-2xl font-bold tracking-tighter text-white uppercase tracking-widest">
+        <!-- Navbar Estilo App (Pegajoso arriba) -->
+        <nav class="p-4 sticky top-0 z-40 bg-[#020617]/80 backdrop-blur-md border-b border-slate-800/50 shadow-sm">
+            <div class="max-w-2xl mx-auto flex justify-center items-center">
+                <div class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 uppercase tracking-widest">
                     EXPLICADOS
                 </div>
             </div>
         </nav>
 
-        <!-- Sección Principal (Hero) -->
-        <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
-            <!-- Cambiamos items-center por items-start para alinear arriba -->
-            <div class="responsive-row flex flex-col md:flex-row items-start gap-12 lg:gap-20">
+        <!-- Sección Principal (Feed estilo App) -->
+        <main class="max-w-2xl mx-auto px-5 py-8 pb-36 flex flex-col items-center gap-10 flex-grow">
                 
-                <!-- Columna Izquierda: Imágenes y Autor -->
-                <div class="responsive-col w-full md:w-1/2 flex flex-col items-center justify-center gap-6 perspective-1000 md:pt-4">
-                    <!-- Portada Principal con marco brillante blanco -->
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDjyy2eRFtz8it_WnVfYQ5SOspoUXm_dLGtuUD6c_Jy8_jh_Ki0wGi9McBaa6RXgUgWkZzJyuVuoRIgc5xyA3QNCcv8Da3gNNFJVSK4JuMEscznUuRt9-JEZJmD6OlgmfVhTkuDxiUH8pZyJx7aTTCiBlBOAbuhbSWqUhs9XdNrfO33gYNHpjbI6-GnDM/s1280/photo_2026-04-25_10-07-00.jpg" alt="Portada del libro EXPLICADOS" class="w-64 md:w-80 h-auto rounded-lg object-cover aspect-[2/3] border-4 border-white shadow-[0_0_30px_rgba(255,255,255,0.7)] transition-transform duration-300 hover:scale-105">
-                    
-                    <!-- Imagen Secundaria (Detalle/Sello) con marco brillante blanco -->
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0biyZv4ar5eHXoEs6vHUlGBOa5Z-iijvIfzS1FPvz41Srxr_vM72IDjsvfqlo8XrJAnpamvA3ClnUT0PYrSKnWyE87t8FOPTQ-h1RegmJKnRB-6TyF81JSx2loycwySoA8v0WSsgyjDn7hts0snDroxysPehCFBnX9DtbCfGI7h5FphyphenhyphenON9ebgoDfzEo/s577/photo_2026-04-25_10-28-08-removebg-preview.png" alt="Sello Explicados" class="w-40 md:w-48 lg:w-56 h-auto rounded-lg border-4 border-white shadow-[0_0_30px_rgba(255,255,255,0.7)] transition-transform duration-300 hover:scale-105 object-contain">
+            <!-- Bloque 1: Imágenes y Autor -->
+            <div class="w-full flex flex-col items-center justify-center gap-6 mt-4">
+                <!-- Portada Principal con marco brillante blanco -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDjyy2eRFtz8it_WnVfYQ5SOspoUXm_dLGtuUD6c_Jy8_jh_Ki0wGi9McBaa6RXgUgWkZzJyuVuoRIgc5xyA3QNCcv8Da3gNNFJVSK4JuMEscznUuRt9-JEZJmD6OlgmfVhTkuDxiUH8pZyJx7aTTCiBlBOAbuhbSWqUhs9XdNrfO33gYNHpjbI6-GnDM/s1280/photo_2026-04-25_10-07-00.jpg" alt="Portada del libro EXPLICADOS" class="relative w-64 sm:w-80 h-auto rounded-xl object-cover border-2 border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                </div>
+                
+                <!-- Imagen Secundaria (Detalle/Sello) -->
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0biyZv4ar5eHXoEs6vHUlGBOa5Z-iijvIfzS1FPvz41Srxr_vM72IDjsvfqlo8XrJAnpamvA3ClnUT0PYrSKnWyE87t8FOPTQ-h1RegmJKnRB-6TyF81JSx2loycwySoA8v0WSsgyjDn7hts0snDroxysPehCFBnX9DtbCfGI7h5FphyphenhyphenON9ebgoDfzEo/s577/photo_2026-04-25_10-28-08-removebg-preview.png" alt="Sello Explicados" class="w-40 sm:w-48 h-auto rounded-xl object-contain opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
 
-                    <!-- Sección Acerca del Autor -->
-                    <div class="mt-2 text-center w-full">
-                        <h3 class="text-xl md:text-2xl font-bold text-white tracking-wide border-b-2 border-blue-500/50 pb-2 inline-block">
-                            Acerca del Autor Lemuel Cruz:
-                        </h3>
+                <!-- Sección Acerca del Autor -->
+                <div class="mt-2 text-center w-full">
+                    <h3 class="text-lg font-bold text-slate-200 tracking-wide border-b-2 border-blue-500/50 pb-2 inline-block">
+                        Autor: Lemuel Cruz
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Bloque 2: Información y Textos -->
+            <div class="w-full flex flex-col items-center text-center space-y-6">
+                <!-- Etiqueta -->
+                <div class="inline-block px-5 py-1.5 rounded-full bg-blue-900/40 border border-blue-500/40 text-blue-300 text-sm font-semibold shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                    🌟 ¡Para edificación!
+                </div>
+                
+                <!-- Título -->
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight px-2">
+                    DESCUBRE LO MARAVILLOSO QUE ES <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">PROFUNDIZAR EN LA BIBLIA</span>
+                </h1>
+
+                <!-- Tarjeta de Contador de Descargas -->
+                <div class="w-full max-w-sm mt-4 bg-slate-800/60 border border-slate-700/80 rounded-2xl py-5 px-6 shadow-xl backdrop-blur-sm flex flex-col items-center justify-center animate-pulse-soft relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 pointer-events-none"></div>
+                    <p class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-1 z-10">Total de Descargas</p>
+                    <div class="flex items-center gap-3 z-10">
+                        <svg class="w-8 h-8 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        <span id="contador-descargas" class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">...</span>
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Información y Botones -->
-                <div class="responsive-col w-full md:w-1/2 text-center md:text-left space-y-6">
-                    <div class="inline-block px-4 py-1.5 rounded-full bg-blue-900/50 border border-blue-500/30 text-blue-300 text-sm font-semibold mb-2">
-                        🌟 ¡ Para edificación !
-                    </div>
-                    
-                    <h1 class="responsive-title text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                        DESCUBRE LO MARAVILLOSO QUE ES <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">PROFUNDIZAR EN LA BIBLIA</span>
-                    </h1>
-
-                    <!-- Descripción del Libro -->
-                    <div class="text-left space-y-4 mt-6">
-                        <p class="text-slate-300 leading-relaxed text-base md:text-lg">
-                            <strong>Explicados</strong> es un libro guía para todo cristiano que desea entender mejor la Biblia. Con explicaciones directas, desmonta confusiones comunes sobre ministerios, grupos del siglo I, denominaciones cristianas, sectas, herejías y temas polémicos como la Trinidad, el bautismo, la salvación, el infierno y la escatología.
-                        </p>
-                        <p class="text-slate-300 font-semibold text-base md:text-lg">El libro incluye:</p>
-                        <ul class="list-disc list-outside text-slate-300 space-y-2 text-base text-left ml-5 md:ml-6 marker:text-blue-500">
-                            <li>Fundamentos bíblicos sólidos.</li>
-                            <li>Análisis de los diferentes ministerios (apóstol, profeta, pastor, evangelista y maestro).</li>
-                            <li>Comparación entre denominaciones y posturas cristianas.</li>
-                            <li>Respuestas bíblicas a debates frecuentes con católicos, unicitarios y testigos de Jehová.</li>
-                            <li>Un resumen del canon bíblico y el propósito de cada libro.</li>
-                            <li>Advertencias sobre falsas doctrinas y revelaciones extrabíblicas.</li>
-                        </ul>
-                        <p class="text-slate-300 leading-relaxed text-base md:text-lg pt-2">
-                            Escrito con un enfoque sencillo pero profundo, <strong>Explicados</strong> es una herramienta ideal tanto para creyentes nuevos como para quienes buscan fortalecer su fe y defenderla con la Palabra de Dios. Perfecto para estudio personal, grupos pequeños o como recurso de discipulado.
-                        </p>
-                    </div>
-
-                    <!-- Botón de Descarga PDF -->
-                    <div class="pt-6 pb-2">
-                        <button onclick="descargarPDF()" class="btn-glow w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center justify-center gap-3 text-lg transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
-                            Descargar Gratis en PDF
-                        </button>
-                    </div>
-
-                    <!-- Redes Sociales -->
-                    <div class="pt-6 border-t border-slate-700/50">
-                        <p class="text-sm text-slate-400 font-semibold mb-4 uppercase tracking-wider">Sígueme en mis redes:</p>
-                        <div class="responsive-flex-center flex flex-wrap gap-4 justify-center md:justify-start">
-                            
-                            <!-- TikTok -->
-                            <a href="#" class="p-3 bg-slate-800 hover:bg-slate-700 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white" title="TikTok">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-                            </a>
-
-                            <!-- Instagram -->
-                            <a href="#" class="p-3 bg-slate-800 hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-red-500 hover:to-purple-500 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white" title="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            </a>
-
-                            <!-- YouTube -->
-                            <a href="#" class="p-3 bg-slate-800 hover:bg-red-600 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white" title="YouTube">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-                            </a>
-
-                            <!-- Facebook -->
-                            <a href="#" class="p-3 bg-slate-800 hover:bg-blue-600 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white" title="Facebook">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            </a>
-
-                        </div>
-                    </div>
-
+                <!-- Descripción del Libro en formato de "Tarjeta" de App -->
+                <div class="text-left space-y-4 mt-2 bg-slate-800/40 p-6 sm:p-8 rounded-3xl border border-slate-700/50 shadow-xl backdrop-blur-md w-full">
+                    <p class="text-slate-300 leading-relaxed text-base">
+                        <strong class="text-white">Explicados</strong> es un libro guía para todo cristiano que desea entender mejor la Biblia. Con explicaciones directas, desmonta confusiones comunes sobre ministerios, grupos del siglo I, denominaciones cristianas, sectas, herejías y temas polémicos como la Trinidad, el bautismo, la salvación, el infierno y la escatología.
+                    </p>
+                    <p class="text-slate-200 font-bold text-base mt-6">El libro incluye:</p>
+                    <ul class="list-none space-y-3 text-slate-300 text-base text-left">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Fundamentos bíblicos sólidos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Análisis de los diferentes ministerios (apóstol, profeta, pastor, evangelista y maestro).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Comparación entre denominaciones y posturas cristianas.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Respuestas bíblicas a debates frecuentes con católicos, unicitarios y testigos de Jehová.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Un resumen del canon bíblico y el propósito de cada libro.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Advertencias sobre falsas doctrinas y revelaciones extrabíblicas.</span>
+                        </li>
+                    </ul>
+                    <p class="text-slate-300 leading-relaxed text-base pt-6 border-t border-slate-700/50 mt-6">
+                        Escrito con un enfoque sencillo pero profundo, <strong class="text-white">Explicados</strong> es una herramienta ideal tanto para creyentes nuevos como para quienes buscan fortalecer su fe y defenderla con la Palabra de Dios. Perfecto para estudio personal, grupos pequeños o como recurso de discipulado.
+                    </p>
                 </div>
+
+                <!-- Redes Sociales -->
+                <div class="pt-8 pb-4 w-full mt-4">
+                    <p class="text-sm text-slate-400 font-bold mb-5 uppercase tracking-wider">Sígueme en mis redes:</p>
+                    <div class="flex flex-wrap gap-5 justify-center">
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@palabrasensilla?_r=1&_t=ZS-97GexA1Sa3O" target="_blank" rel="noopener noreferrer" class="p-4 bg-slate-800 hover:bg-slate-700 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white shadow-lg" title="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/lemuel42?igsh=eDRudXRteHFhYTY3" target="_blank" rel="noopener noreferrer" class="p-4 bg-slate-800 hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-red-500 hover:to-purple-500 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white shadow-lg" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="https://youtube.com/@hnojimenez?si=Atn5rMdnK-kSkCvH" target="_blank" rel="noopener noreferrer" class="p-4 bg-slate-800 hover:bg-red-600 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white shadow-lg" title="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/lemuel.cruz2" target="_blank" rel="noopener noreferrer" class="p-4 bg-slate-800 hover:bg-blue-600 hover:-translate-y-1 transition-all rounded-full border border-slate-700 text-white shadow-lg" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </main>
         
-        <!-- Footer simple -->
-        <footer class="text-center py-8 text-slate-500 text-sm mt-auto">
-            <p>&copy; 2026 Explicados. Todos los derechos reservados.</p>
-        </footer>
+        <!-- Barra Inferior Fija (Estilo App) con los DOS Botones -->
+        <div class="fixed bottom-0 left-0 w-full p-4 bg-[#020617]/90 backdrop-blur-xl border-t border-slate-800/80 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] z-50">
+            <div class="max-w-2xl mx-auto flex flex-row justify-center gap-3">
+                
+                <!-- Botón PDF -->
+                <button onclick="registrarDescargaYRedirigir('https://archive.org/download/Explicados/Explicados.pdf')" class="btn-glow flex-1 px-2 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-blue-400/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Bajar PDF
+                </button>
+
+                <!-- Botón EPUB -->
+                <button onclick="registrarDescargaYRedirigir('https://archive.org/download/explicados-lemuel-cruz/Explicados%20-%20Lemuel%20Cruz.epub')" class="btn-glow flex-1 px-2 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-[0_0_15px_rgba(8,145,178,0.4)] border border-cyan-400/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    Bajar EPUB
+                </button>
+
+            </div>
+        </div>
+
     </div>
 
-    <!-- Scripts -->
+    <!-- Lógica de Javascript para el Contador Local -->
     <script>
-        // Función simulada para el botón de descargar PDF
-        function descargarPDF() {
-            // Aquí usted pondría la lógica real para descargar el archivo.
-            // Por ejemplo: window.location.href = 'ruta/a/su/libro.pdf';
-            
-            // Creamos un pequeño aviso temporal y bonito en pantalla
-            const alertDiv = document.createElement('div');
-            alertDiv.className = 'fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-3 rounded-xl shadow-2xl transition-opacity duration-500 z-50 flex items-center gap-2';
-            alertDiv.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                ¡Descarga iniciada correctamente!
-            `;
-            
-            document.body.appendChild(alertDiv);
-            
-            setTimeout(() => {
-                alertDiv.style.opacity = '0';
-                setTimeout(() => alertDiv.remove(), 500);
-            }, 3000);
+        // Inicializamos el contador desde el almacenamiento del navegador o con un valor base (0)
+        let descargasLocales = parseInt(localStorage.getItem('descargas_explicados_inicio') || '0'); 
+        const elementoContador = document.getElementById('contador-descargas');
+
+        // Función para formatear y mostrar el número en pantalla
+        function actualizarVista(cantidad) {
+            if(elementoContador) {
+                // Le pone el punto de los miles para que se vea mejor
+                elementoContador.innerText = cantidad.toLocaleString('es-CO');
+            }
         }
+
+        // Mostramos el número apenas carga la página
+        actualizarVista(descargasLocales);
+
+        // Función que se dispara al hundir cualquiera de los botones
+        window.registrarDescargaYRedirigir = function(url) {
+            // Abrimos el archivo (PDF o EPUB) en una pestaña nueva
+            window.open(url, '_blank');
+
+            // Le sumamos 1 a nuestro contador
+            descargasLocales++;
+            
+            // Guardamos el nuevo valor para que no se borre al recargar la página
+            localStorage.setItem('descargas_explicados_inicio', descargasLocales);
+            
+            // Actualizamos el número gigante en la pantalla
+            actualizarVista(descargasLocales);
+        };
     </script>
 </body>
 </html>
