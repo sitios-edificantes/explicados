@@ -157,13 +157,13 @@
             <div class="max-w-2xl mx-auto flex flex-row justify-center gap-3">
                 
                 <!-- Botón PDF -->
-                <button onclick="registrarDescargaYRedirigir('https://archive.org/download/Explicados/Explicados.pdf')" class="btn-glow flex-1 px-2 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-blue-400/30">
+                <button id="btn-pdf" onclick="registrarDescargaYRedirigir('https://ia601009.us.archive.org/5/items/explicados_202606/Explicados.pdf', 'Explicados - Lemuel Cruz.pdf', 'btn-pdf')" class="btn-glow flex-1 px-2 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-blue-400/30">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                     Bajar PDF
                 </button>
 
                 <!-- Botón EPUB -->
-                <button onclick="registrarDescargaYRedirigir('https://archive.org/download/explicados-lemuel-cruz/Explicados%20-%20Lemuel%20Cruz.epub')" class="btn-glow flex-1 px-2 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-[0_0_15px_rgba(8,145,178,0.4)] border border-cyan-400/30">
+                <button id="btn-epub" onclick="registrarDescargaYRedirigir('https://archive.org/download/explicados-lemuel-cruz/Explicados%20-%20Lemuel%20Cruz.epub', 'Explicados - Lemuel Cruz.epub', 'btn-epub')" class="btn-glow flex-1 px-2 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl flex items-center justify-center gap-2 text-sm sm:text-base shadow-[0_0_15px_rgba(8,145,178,0.4)] border border-cyan-400/30">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
                     Bajar EPUB
                 </button>
@@ -191,18 +191,27 @@
         actualizarVista(descargasLocales);
 
         // Función que se dispara al hundir cualquiera de los botones
-        window.registrarDescargaYRedirigir = function(url) {
-            // Abrimos el archivo (PDF o EPUB) en una pestaña nueva
-            window.open(url, '_blank');
-
+        window.registrarDescargaYRedirigir = function(url, nombreArchivo, btnId) {
+            
             // Le sumamos 1 a nuestro contador
             descargasLocales++;
             
             // Guardamos el nuevo valor para que no se borre al recargar la página
             localStorage.setItem('descargas_explicados_inicio', descargasLocales);
             
-            // Actualizamos el número gigante en la pantalla
+            // Actualizamos el número en la pantalla al instante
             actualizarVista(descargasLocales);
+
+            // Método de descarga NATIVO, DIRECTO e INSTANTÁNEO. 
+            // Eliminamos las conexiones intermedias (proxies) que causaban demoras y errores.
+            const enlaceDescarga = document.createElement('a');
+            enlaceDescarga.href = url;
+            enlaceDescarga.download = nombreArchivo;
+            enlaceDescarga.target = "_blank"; // Se asegura de no cerrar su página bajo ninguna circunstancia
+            
+            document.body.appendChild(enlaceDescarga);
+            enlaceDescarga.click();
+            document.body.removeChild(enlaceDescarga);
         };
     </script>
 </body>
