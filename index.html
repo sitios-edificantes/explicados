@@ -25,6 +25,13 @@
         .animate-pulse-soft {
             animation: pulse-soft 3s infinite ease-in-out;
         }
+
+        /* Asegurarnos que si el contador carga imágenes, se adapten bien */
+        .contador-wrapper img {
+            display: inline-block;
+            vertical-align: middle;
+            height: 35px; /* Ajusta este valor si las imágenes del contador son muy grandes/pequeñas */
+        }
     </style>
 </head>
 <body class="bg-[#020617] text-white font-sans antialiased selection:bg-blue-500 selection:text-white">
@@ -76,17 +83,21 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">PROFUNDIZAR EN LA BIBLIA</span>
                 </h1>
 
-                <!-- Tarjeta de Contador de VISITAS -->
+                <!-- Tarjeta de Contador de VISITAS EXTERNO -->
                 <div class="w-full max-w-sm mt-4 bg-slate-800/60 border border-slate-700/80 rounded-2xl py-5 px-6 shadow-xl backdrop-blur-sm flex flex-col items-center justify-center animate-pulse-soft relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 pointer-events-none"></div>
-                    <p class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-1 z-10">Visitas a la página</p>
-                    <div class="flex items-center gap-3 z-10">
+                    <p class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-2 z-10">Visitas a la página</p>
+                    <div class="flex items-center justify-center gap-3 z-10">
                         <!-- Ícono de Ojo para visitas -->
-                        <svg class="w-8 h-8 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg class="w-8 h-8 text-cyan-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                         </svg>
-                        <span id="contador-visitas" class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">...</span>
+                        
+                        <!-- AQUI ESTÁ EL NUEVO SCRIPT DEL CONTADOR -->
+                        <div class="contador-wrapper text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300 flex items-center justify-center">
+                            <script type="text/javascript" src="https://contador.websiteout.com/js/7/0/0/0"></script>
+                        </div>
                     </div>
                 </div>
 
@@ -186,28 +197,9 @@
 
     <!-- Lógica de Javascript -->
     <script>
-        /* === LÓGICA DEL CONTADOR DE VISITAS === */
-        // Se ejecuta apenas la página carga, sumando 1 visita.
-        // Nota: Al usar localStorage, estamos contando las visitas por navegador. 
-        // Si desea un contador global real (que todos vean el mismo número), requeriría una base de datos.
-        // Pero esta lógica es la forma correcta de contar "entradas" y no "clics".
-        document.addEventListener('DOMContentLoaded', () => {
-            let visitasLocales = parseInt(localStorage.getItem('visitas_totales_explicados') || '0');
-            
-            // Sumamos una visita por recarga/entrada a la página
-            visitasLocales++;
-            localStorage.setItem('visitas_totales_explicados', visitasLocales);
-
-            // Actualizamos la vista
-            const elementoContador = document.getElementById('contador-visitas');
-            if(elementoContador) {
-                // El toLocaleString le pone el punto de los miles para que se lea mejor
-                elementoContador.innerText = visitasLocales.toLocaleString('es-CO');
-            }
-        });
-
         /* === LÓGICA DE DESCARGA === */
-        // La función ahora solo se encarga de descargar, sin revolver con el contador.
+        // La función se encarga de descargar el archivo dinámicamente.
+        // Se ha eliminado la lógica de conteo local ya que ahora se utiliza el script de terceros provisto.
         window.descargarArchivo = function(url, nombreArchivo) {
             const enlaceDescarga = document.createElement('a');
             enlaceDescarga.href = url;
