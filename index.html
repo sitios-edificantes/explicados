@@ -30,7 +30,7 @@
         .contador-wrapper img {
             display: inline-block;
             vertical-align: middle;
-            height: 35px; /* Ajusta este valor si las imágenes del contador son muy grandes/pequeñas */
+            height: 35px;
         }
 
         /* Scrollbar personalizado para el modal del autor */
@@ -69,14 +69,20 @@
                 
             <!-- Bloque 1: Imágenes y Autor -->
             <div class="w-full flex flex-col items-center justify-center gap-6 mt-4">
-                <!-- Portada Principal con marco brillante blanco -->
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDjyy2eRFtz8it_WnVfYQ5SOspoUXm_dLGtuUD6c_Jy8_jh_Ki0wGi9McBaa6RXgUgWkZzJyuVuoRIgc5xyA3QNCcv8Da3gNNFJVSK4JuMEscznUuRt9-JEZJmD6OlgmfVhTkuDxiUH8pZyJx7aTTCiBlBOAbuhbSWqUhs9XdNrfO33gYNHpjbI6-GnDM/s1280/photo_2026-04-25_10-07-00.jpg" alt="Portada del libro EXPLICADOS" class="relative w-64 sm:w-80 h-auto rounded-xl object-cover border-2 border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                
+                <!-- Portada Principal (Más grande y sin borde) -->
+                <div class="relative group mt-2 mb-4 w-full flex justify-center">
+                    <div class="absolute inset-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="https://raw.githubusercontent.com/sitios-edificantes/explicados/refs/heads/main/ChatGPT%20Image%2019%20jun%202026%2C%2012_47_07%20p.m..png" alt="Portada del libro EXPLICADOS" class="relative w-[95%] sm:w-[450px] md:w-[550px] h-auto rounded-xl object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
                 </div>
                 
-                <!-- Imagen Secundaria (Detalle/Sello) -->
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0biyZv4ar5eHXoEs6vHUlGBOa5Z-iijvIfzS1FPvz41Srxr_vM72IDjsvfqlo8XrJAnpamvA3ClnUT0PYrSKnWyE87t8FOPTQ-h1RegmJKnRB-6TyF81JSx2loycwySoA8v0WSsgyjDn7hts0snDroxysPehCFBnX9DtbCfGI7h5FphyphenhyphenON9ebgoDfzEo/s577/photo_2026-04-25_10-28-08-removebg-preview.png" alt="Sello Explicados" class="w-40 sm:w-48 h-auto rounded-xl object-contain opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                <!-- Imagen del Autor con marco brillante solicitado -->
+                <div class="relative mt-4 mb-2 group">
+                    <!-- Efecto de resplandor (glow) -->
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-cyan-400 via-blue-500 to-purple-500 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                    <!-- Marco de la imagen tipo cuadro -->
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0biyZv4ar5eHXoEs6vHUlGBOa5Z-iijvIfzS1FPvz41Srxr_vM72IDjsvfqlo8XrJAnpamvA3ClnUT0PYrSKnWyE87t8FOPTQ-h1RegmJKnRB-6TyF81JSx2loycwySoA8v0WSsgyjDn7hts0snDroxysPehCFBnX9DtbCfGI7h5FphyphenhyphenON9ebgoDfzEo/s577/photo_2026-04-25_10-28-08-removebg-preview.png" alt="Autor Lemuel Cruz" class="relative w-40 sm:w-48 h-auto rounded-xl object-contain border-[4px] border-white shadow-2xl bg-slate-800">
+                </div>
 
                 <!-- Sección Acerca del Autor -->
                 <div class="mt-2 text-center w-full flex flex-col items-center">
@@ -84,7 +90,7 @@
                         Autor: Lemuel Cruz
                     </h3>
                     
-                    <!-- NUEVO: Botón "Acerca del Autor" estilo espejo -->
+                    <!-- Botón "Acerca del Autor" estilo espejo -->
                     <button onclick="abrirModalAutor()" class="mt-5 group relative overflow-hidden btn-glow px-6 py-2.5 bg-purple-600/50 hover:bg-purple-500/70 backdrop-blur-md text-white font-bold rounded-2xl inline-flex items-center justify-center gap-2 text-sm shadow-[0_0_15px_rgba(147,51,234,0.3)] border border-white/30">
                         <!-- Brillo superior fijo -->
                         <div class="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent opacity-60 rounded-2xl pointer-events-none"></div>
