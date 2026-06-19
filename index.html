@@ -53,31 +53,35 @@
 <body class="bg-[#020617] text-white font-sans antialiased selection:bg-blue-500 selection:text-white">
 
     <!-- Contenedor Principal -->
-    <div class="w-full min-h-screen relative flex flex-col">
+    <div class="w-full min-h-screen relative flex flex-col overflow-x-hidden">
         
-        <!-- Navbar Estilo App (Pegajoso arriba) -->
-        <nav class="p-4 sticky top-0 z-40 bg-[#020617]/80 backdrop-blur-md border-b border-slate-800/50 shadow-sm">
-            <div class="max-w-2xl mx-auto flex justify-center items-center">
-                <div class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 uppercase tracking-widest">
+        <!-- Navbar Estilo App (Pegajoso arriba, Cristal/Espejo Azul Oscuro) -->
+        <nav class="p-4 sticky top-0 z-50 w-full bg-blue-950/40 backdrop-blur-2xl border-b border-blue-400/30 shadow-[0_10px_30px_rgba(23,37,84,0.4)] overflow-hidden">
+            <!-- Brillo superior estilo espejo -->
+            <div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-2xl mx-auto flex justify-center items-center relative z-10">
+                <div class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 uppercase tracking-widest drop-shadow-md">
                     EXPLICADOS
                 </div>
             </div>
         </nav>
 
         <!-- Sección Principal (Feed estilo App) -->
-        <main class="max-w-2xl mx-auto px-5 py-8 pb-36 flex flex-col items-center gap-10 flex-grow">
+        <main class="max-w-2xl mx-auto px-4 sm:px-5 py-8 pb-36 flex flex-col items-center gap-10 flex-grow w-full">
                 
             <!-- Bloque 1: Imágenes y Autor -->
             <div class="w-full flex flex-col items-center justify-center gap-6 mt-4">
                 
-                <!-- Portada Principal (Más grande y sin borde) -->
-                <div class="relative group mt-2 mb-4 w-full flex justify-center">
-                    <div class="absolute inset-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-                    <img src="https://raw.githubusercontent.com/sitios-edificantes/explicados/refs/heads/main/ChatGPT%20Image%2019%20jun%202026%2C%2012_47_07%20p.m..png" alt="Portada del libro EXPLICADOS" class="relative w-[95%] sm:w-[450px] md:w-[550px] h-auto rounded-xl object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)]">
+                <!-- Portada Principal (AHORA MÁS GRANDE) -->
+                <div class="relative group mt-2 mb-6 w-full flex justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                    <!-- Se ajustaron las clases de ancho (w-[100%] sm:w-[550px] md:w-[680px]) para que sea mucho más grande -->
+                    <img src="https://raw.githubusercontent.com/sitios-edificantes/explicados/refs/heads/main/ChatGPT%20Image%2019%20jun%202026%2C%2012_47_07%20p.m..png" alt="Portada del libro EXPLICADOS" class="relative w-[100%] sm:w-[550px] md:w-[680px] lg:w-[750px] max-w-none h-auto rounded-xl object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)] hover:scale-[1.02] transition-transform duration-500">
                 </div>
                 
                 <!-- Imagen del Autor con marco brillante solicitado -->
-                <div class="relative mt-4 mb-2 group">
+                <div class="relative mt-6 mb-2 group">
                     <!-- Efecto de resplandor (glow) -->
                     <div class="absolute -inset-2 bg-gradient-to-tr from-cyan-400 via-blue-500 to-purple-500 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
                     <!-- Marco de la imagen tipo cuadro -->
